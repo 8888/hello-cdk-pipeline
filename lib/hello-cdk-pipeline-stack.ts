@@ -9,6 +9,8 @@ export class HelloCdkPipelineStack extends Stack {
     const pipeline = new CodePipeline(this, 'Pipeline', {
       pipelineName: 'MyPipeline',
       synth: new ShellStep('Synth', {
+        // By default, the pipeline authenticates to GitHub using a personal access
+        // token stored in Secrets Manager under the name github-token.
         input: CodePipelineSource.gitHub('8888/hello-cdk-pipeline', 'main'),
         commands: ['npm ci', 'npm run build', 'npx cdk synth'],
       }),
