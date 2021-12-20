@@ -20,6 +20,6 @@ export class HelloCdkPipelineStack extends Stack {
     const testingStage = pipeline.addStage(new MyPipelineAppStage(this, 'test', {
       env: { account: '410489852199', region: 'us-east-1' },
     }));
-    testingStage.addPost(new ManualApprovalStep('approval'));
+    // testingStage.addPost(new ManualApprovalStep('approval'));
   }
 }
